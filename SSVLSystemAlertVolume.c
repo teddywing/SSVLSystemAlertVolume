@@ -6,7 +6,7 @@ OSStatus SSVLGetSystemVolume(Float32 *volume) {
 	UInt32 volume_size = sizeof(*volume);
 
 	OSStatus result = AudioServicesGetProperty(
-		kAudioServicesPropertySystemAlertVolume,
+		SSVLAudioServicesPropertySystemAlertVolume,
 		0,
 		NULL,
 		&volume_size,
@@ -29,7 +29,7 @@ OSStatus SSVLSetSystemVolume(Float32 volume) {
 	volume = exp(volume - 1.0);
 
 	return AudioServicesSetProperty(
-		kAudioServicesPropertySystemAlertVolume,
+		SSVLAudioServicesPropertySystemAlertVolume,
 		0,
 		NULL,
 		sizeof(volume),
