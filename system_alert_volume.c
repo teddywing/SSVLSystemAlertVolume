@@ -1,8 +1,8 @@
 #include <AudioToolbox/AudioToolbox.h>
 
-const AudioServicesPropertyID kAudioServicesPropertySystemAlertVolume = 'ssvl';
+const AudioServicesPropertyID SSVLAudioServicesPropertySystemAlertVolume = 'ssvl';
 
-OSStatus system_volume_get(Float32 *volume) {
+OSStatus SSVLGetSystemVolume(Float32 *volume) {
 	UInt32 volume_size = sizeof(*volume);
 
 	OSStatus result = AudioServicesGetProperty(
@@ -25,7 +25,7 @@ OSStatus system_volume_get(Float32 *volume) {
 	return result;
 }
 
-OSStatus system_volume_set(Float32 volume) {
+OSStatus SSVLSetSystemVolume(Float32 volume) {
 	volume = exp(volume - 1.0);
 
 	return AudioServicesSetProperty(
