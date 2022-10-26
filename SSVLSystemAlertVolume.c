@@ -13,8 +13,6 @@ OSStatus SSVLGetSystemVolume(Float32 *volume) {
 		volume
 	);
 
-	// TODO: Sound PrefPane: If result != noErr, return 0.5?
-
 	if (*volume != 0) {
 		*volume = log(*volume) + 1.0;
 	}
