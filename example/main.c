@@ -1,25 +1,35 @@
+#include <stdlib.h>
+#include <sysexits.h>
+
+#include <CoreFoundation/CoreFoundation.h>
+
 #include "./lib/SSVLSystemAlertVolume.h"
 
-int main() {
-	OSStatus result;
-
+int main(int argc, char *argv[]) {
+	OSStatus result = noErr;
 	Float32 volume;
 
-	result = SSVLGetSystemVolume(&volume);
-	if (result != noErr) {
-		printf("Error getting system volume: %d\n", result);
-		return 1;
+	// Print the current system alert volume when no arguments are given.
+	if (argc == 1) {
+		result = SSVLGetSystemVolume(&volume);
+		if (result != noErr) {
+			printf("error: can't get system volume: %d\n", result);
+
+			return EX_UNAVAILABLE;
+		}
+
+		printf("%f\n", volume);
+
+		return EX_OK;
 	}
 
-	printf("System volume: %f\n", volume);
+	// Set the system alert volume to the first argument.
+	volume = strtof(argv[1], NULL);
 
-
-	Float32 new_volume = 0.5;
-	result = SSVLSetSystemVolume(new_volume);
+	result = SSVLSetSystemVolume(volume);
 	if (result != noErr) {
-		printf("Error setting system volume: %d\n", result);
-		return 1;
-	}
+		printf("error: can't set system volume: %d\n", result);
 
-	printf("Set volume to: %f\n", new_volume);
+		return EX_UNAVAILABLE;
+	}
 }
