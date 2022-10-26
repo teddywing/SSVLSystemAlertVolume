@@ -1,9 +1,11 @@
+#include "./lib/SSVLSystemAlertVolume.h"
+
 int main() {
 	OSStatus result;
 
 	Float32 volume;
 
-	result = system_volume_get(&volume);
+	result = SSVLGetSystemVolume(&volume);
 	if (result != noErr) {
 		printf("Error getting system volume: %d\n", result);
 		return 1;
@@ -13,7 +15,7 @@ int main() {
 
 
 	Float32 new_volume = 0.5;
-	result = system_volume_set(new_volume);
+	result = SSVLSetSystemVolume(new_volume);
 	if (result != noErr) {
 		printf("Error setting system volume: %d\n", result);
 		return 1;
