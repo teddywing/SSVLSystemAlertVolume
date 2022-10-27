@@ -6,6 +6,8 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
+// Version: 0.1.0
+
 #ifndef SSVLSystemAlertVolume_h
 #define SSVLSystemAlertVolume_h
 
