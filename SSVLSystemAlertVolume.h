@@ -11,6 +11,11 @@
 #ifndef SSVLSystemAlertVolume_h
 #define SSVLSystemAlertVolume_h
 
+#if defined(__cplusplus)
+extern "C"
+{
+#endif
+
 #include <AudioToolbox/AudioToolbox.h>
 #include <CoreFoundation/CoreFoundation.h>
 
@@ -27,5 +32,9 @@ OSStatus SSVLGetSystemVolume(Float32 *volume);
 //
 // Returns the result of `AudioServicesSetProperty`.
 OSStatus SSVLSetSystemVolume(Float32 volume);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* SSVLSystemAlertVolume_h */
