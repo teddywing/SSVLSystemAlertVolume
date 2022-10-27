@@ -10,6 +10,13 @@
 
 #include "SSVLSystemAlertVolume.h"
 
+// This property appears to be private, as it isn't defined in Apple's MacOSX
+// SDK framework headers.
+//
+// The value comes from the Sound preference pane. Disassembling the
+// `/System/Library/PreferencePanes/Sound.prefPane/Contents/MacOS/Sound` binary
+// shows that functions accessing the system alert volume do so via the
+// '0x7373766c' property. Converting that to a FourCharCode yields 'ssvl'.
 const AudioServicesPropertyID SSVLAudioServicesPropertySystemAlertVolume = 'ssvl';
 
 OSStatus SSVLGetSystemVolume(Float32 *volume) {
