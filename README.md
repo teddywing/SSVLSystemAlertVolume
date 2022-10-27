@@ -8,7 +8,8 @@ This volume level is commonly set in the System Preferences’ Sound preference
 pane. Under the pane’s “Sound Effects” tab, it is controlled using the “Alert
 volume” slider.
 
-![Alert volume slider in the Sound preference pane](./Alert volume slider.png)
+![Alert volume slider in the Sound preference
+pane](./Alert%20volume%20slider.png)
 
 
 ## Use
