@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <sysexits.h>
 
 #include <CoreFoundation/CoreFoundation.h>
@@ -6,6 +8,26 @@
 #include "./lib/SSVLSystemAlertVolume.h"
 
 int main(int argc, char *argv[]) {
+	if (
+		argc == 2
+		&&
+		(
+			strcmp(argv[1], "-h") == 0
+			|| strcmp(argv[1], "--help") == 0
+		)
+	) {
+		puts(
+			"usage: sysalertvol [-h] [<volume>]\n"
+			"\n"
+			"                  with no arguments, print the current system alert volume\n"
+			"    <volume>      set alert volume to a value between 0 and 1\n"
+			"    -h, --help    print this help message"
+		);
+
+		return EX_OK;
+	}
+
+
 	OSStatus result = noErr;
 	Float32 volume;
 
