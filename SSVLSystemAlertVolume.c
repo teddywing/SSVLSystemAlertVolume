@@ -41,7 +41,9 @@ OSStatus SSVLGetSystemVolume(Float32 *volume) {
 }
 
 OSStatus SSVLSetSystemVolume(Float32 volume) {
-	volume = exp(volume - 1.0);
+	if (volume != 0) {
+		volume = exp(volume - 1.0);
+	}
 
 	return AudioServicesSetProperty(
 		SSVLAudioServicesPropertySystemAlertVolume,
