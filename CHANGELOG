@@ -1,0 +1,13 @@
+CHANGELOG
+=========
+
+v0.1.1 (2026-11-16):
+	Fixes:
+
+	* Setting system volume to 0 did not always mute the system alert volume.
+	  (Fixed by Arvind/arvonit)
+
+v0.1.0 (2022-10-28):
+	First release.
+
+ vim:tw=80:comments=:fo+=n:formatlistpat=^\\s*\\*\\s*
